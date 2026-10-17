@@ -1,4 +1,4 @@
-# Fortnite Tweak Tool (Windows)
+# Rage Tweaks (Windows)
 
 Eine native WPF-App für Windows 10/11 mit Dashboard, Systemanalyse, Ping-Diagnose, ausgewählten reversiblen Tweaks, Restore Center und lokalen Logs.
 
@@ -22,7 +22,7 @@ dotnet run
 ```powershell
 dotnet publish -c Release -r win-x64 --self-contained true /p:PublishSingleFile=true
 ```
-Die veröffentlichte EXE liegt im Unterordner `bin\Release\net8.0-windows\win-x64\publish\`.
+Die EXE heißt `RageTweaks.exe` und liegt im Unterordner `bin\Release\net8.0-windows\win-x64\publish\`.
 
 ## Enthalten
 - System-/Windows-Informationen, GPU-Abfrage und Erkennung des Fortnite-Prozesses
@@ -41,6 +41,8 @@ Die veröffentlichte EXE liegt im Unterordner `bin\Release\net8.0-windows\win-x6
   - Panel-Deckkraft (Glas-Effekt), Eckenradius, Neon-Glow, Seitenwechsel-Animation, Schriftart
   - Titelleiste passt sich an (Windows 11: Farbe, Windows 10: dunkel/hell)
   - Design exportieren / importieren / zurücksetzen
+- **Neue Tweaks:** Windows-Animationen aus, Benachrichtigungen aus, Game-Bar-Startfenster/Controller-Popup aus, Tipps & Vorschläge aus, Vollbild-Optimierungen global aus, Zeigergeschwindigkeit 6/11, schnellste Tastatur-Wiederholrate (alle mit Backup und Rückgängig)
+- **Cleaner:** Temp-Ordner leeren, DirectX-Shader-Cache leeren (nicht umkehrbar, nur im eigenen Benutzerkonto)
 - Restore Center: "Alle Tweaks rückgängig machen", Backup- und Log-Ordner
 - UAC-Abfrage über Windows; Fehler und Abbrüche werden protokolliert
 
