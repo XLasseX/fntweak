@@ -1,24 +1,31 @@
 name: RageTweaks
 
 on:
-  workflow_dispatch:
   push:
-    branches: [main]
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v5
+      - name: Code holen
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-dotnet@v5
+      - name: .NET 8 einrichten
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: '8.0.x'
 
-      - name: Publish
+      - name: Wiederherstellen
+        run: dotnet restore
+
+      - name: EXE veröffentlichen
         run: dotnet publish FortniteTweakTool.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o publish
 
-      - uses: actions/upload-artifact@v4
+      - name: EXE hochladen
+        uses: actions/upload-artifact@v4
         with:
-          name: FortniteTweakTool
-          path: publish/*.exe
+          name: RageTweaks
+          path: publish/FortniteTweakTool.exe
+
