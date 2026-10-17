@@ -1,0 +1,36 @@
+
+name: Build Fortnite Tweak Tool
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract source ZIP
+        shell: pwsh
+        run: |
+          Expand-Archive -Path "FortniteTweakTool-Source.zip" -DestinationPath "source" -Force
+          Get-ChildItem source -Recurse
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build project
+        shell: pwsh
+        run: |
+          $project = Get-ChildItem "source" -Filter "*.csproj" -Recurse | Select-Object -First 1
+          if (-not $project) { throw "Keine .csproj-Datei gefunden." }
+          dotnet publish $project.FullName -c Release -r win-x64 --self-contained true -o "${{ github.workspace }}\publish"
+
+      - name: Upload EXE files
+        uses: actions/upload-artifact@v4
+        with:
+          name: FortniteTweakTool-Windows
+          path: publish/
