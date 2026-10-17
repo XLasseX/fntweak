@@ -26,7 +26,7 @@
     <Button Content="⌁  Input Delay" Click="Input_Click" HorizontalContentAlignment="Left"/>
     <Button Content="◉  Ping Optimizer" Click="Ping_Click" HorizontalContentAlignment="Left"/>
     <Button Content="↶  Restore Center" Click="Restore_Click" HorizontalContentAlignment="Left"/>
-    <Button Content="⚙  Settings &amp; Logs" Click="Settings_Click" HorizontalContentAlignment="Left"/>
+   <Button Content="⚙  Settings &amp; Logs" Click="Settings_Click" HorizontalContentAlignment="Left"/>
     <Border Background="#22243A" CornerRadius="9" Padding="10" Margin="4,24,4,0">
      <TextBlock Text="Sicherheit zuerst&#10;Jede Systemänderung benötigt eine separate UAC-Freigabe. Vor Änderungen wird versucht, einen Wiederherstellungspunkt anzulegen." TextWrapping="Wrap" FontSize="11" Foreground="{StaticResource MutedBrush}"/>
     </Border>
